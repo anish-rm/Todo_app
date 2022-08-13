@@ -1,5 +1,22 @@
 const addf = document.querySelector('.add');
 const list = document.querySelector('.todos');
+const value = document.querySelector('.search');
+
+const search = ((to) =>{
+    const s1 = Array.from(list.children).filter((u)=>{
+        return !(u.textContent.toLowerCase().includes(to));
+    });
+    s1.forEach((u)=>{
+        u.classList.add('filtered');
+    })
+    Array.from(list.children).filter((u)=>{
+        return (u.textContent.toLowerCase().includes(to));
+    }).forEach((u)=>{
+        u.classList.remove('filtered');
+    })
+    console.log(s1);
+});
+
 
 function generate(s){
     const html = `
@@ -28,4 +45,9 @@ list.addEventListener('click' ,e=>{
         console.log(e.target);
         e.target.parentElement.remove();
     }
+});
+
+value.addEventListener('keyup',e=>{
+    const to = value.search.value.trim().toLowerCase();
+    search(to);
 });

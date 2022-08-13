@@ -86,6 +86,11 @@ input[type=text]:focus{
     border-radius: 10px;
 }
 
+.filtered{
+    display: none !important;
+}
+
+
 @media(max-width:422px){
     input[type=text]{
         margin: 0 30px;
